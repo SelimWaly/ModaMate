@@ -75,6 +75,7 @@
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="results-div">
+                    <img src="./assets/img/load2.gif" style="margin: auto; width: 200px; height: 200px;" alt="">
                     <!--automated-->
                 </div>
             </div>
@@ -96,6 +97,7 @@
     <script type="module">
     import { results } from './backend/search.js';
     let searchbar = document.getElementById('searchbar')
+    let resultsdiv = document.getElementById('results-div')
     searchbar.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             // Prevent the form from submitting and refreshing the page
@@ -120,12 +122,22 @@
     window.onload = function() {
         let parameters = new URLSearchParams(window.location.search);
         let query = parameters.get("query");
+        if (query.length === 0 || query.startsWith(' ')) {
+            resultsdiv.innerHTML = `<p>Please enter a search query.</p>`
+            return;
+        }
         updateTitle(query);
         activateTheme();
         searchbar.value = query;
+        // new WOW().init();
         results(query);
     }
     </script>
     <script src="./bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- <script src="js/custom.js"></script> -->
+    <!-- <script src="js/jquery.sticky.js"></script> -->
+    <!-- <script src="js/wow.min.js"></script> -->
+    <!-- <script src="js/owl.carousel.min.js"></script> -->
 </body>
 </html>
