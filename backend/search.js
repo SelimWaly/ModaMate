@@ -95,7 +95,7 @@ function results(searchQuery) {
         <div class="col">
             <div class="product" style="background: url('${item.img}'); background-size: cover; background-position: center; padding: 23px 22px; display: flex; flex-direction: column; justify-content: flex-end; color: #f5e0e0; border-radius: 20px;">
                 <div class="product-inner">
-                    <div class="front" style="margin-top: 2em;">
+                    <div class="front" style="margin-top: 2em; text-shadow: black 20px;">
                         <h2><b>${item.name}</b></h2>
                         <p>${item.price} EGP</p>
                         <button onclick="window.open('${item.link}', '_blank');">Buy from ${item.brand}</button>
@@ -109,16 +109,38 @@ function results(searchQuery) {
 
     resultsDiv.innerHTML = resultsContent || "<p>We couldn't find any items matching your query.</p>";
 
+    // // Fallback for missing images
+    // document.querySelectorAll(".product").forEach(productDiv => {
+    //     const backgroundImage = productDiv.style.backgroundImage;
+    //     const imgUrl = backgroundImage.slice(5, -2); // Extract URL from "url('...')"
+    //     const img = new Image();
+    //     img.src = imgUrl;
+    //     img.onerror = () => {
+    //         productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
+    //     };
+    // });
     // Fallback for missing images
-    document.querySelectorAll(".product").forEach(productDiv => {
-        const backgroundImage = productDiv.style.backgroundImage;
+document.querySelectorAll(".product").forEach(productDiv => {
+    const backgroundImage = productDiv.style.backgroundImage;
+    if (backgroundImage.startsWith("url(")) {
         const imgUrl = backgroundImage.slice(5, -2); // Extract URL from "url('...')"
         const img = new Image();
         img.src = imgUrl;
+
+        img.onload = () => {
+            // Image loaded successfully, no changes needed
+        };
+
         img.onerror = () => {
+            // Fallback to NoImage if the original image fails to load
             productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
         };
-    });
+    } else {
+        // If no valid backgroundImage URL exists, set NoImage
+        productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
+    }
+});
+
 }
 
 
