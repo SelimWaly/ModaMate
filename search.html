@@ -6,6 +6,14 @@
     <title>ModaMate Search</title>
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/search-secondary.css">
+    <!-- Animations -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Favicon for light theme -->
+    <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
+
+    <!-- Favicon for dark theme -->
+    <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
 
     <!-- Title -->
     <meta property="og:title" content="Search - ModaMate" />
@@ -15,12 +23,6 @@
   
     <!-- Image -->
     <meta property="og:image" content="https://res.cloudinary.com/ddyftb9yl/image/upload/fl_preserve_transparency/v1736441234/Hero-1_gfv1yi.jpg?_s=public-apps" />
-    
-    <!-- Favicon for light theme -->
-    <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
-
-    <!-- Favicon for dark theme -->
-    <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
 
     <meta name="robots" content="noindex, follow">
 </head>
@@ -30,18 +32,18 @@
     <div class="s006" style="background: url('./assets/img/clothing.webp');">
       <form>
         <fieldset>
-          <legend>ModaMate</legend>
+          <legend class="wow fadeInDown">ModaMate</legend>
           <div class="inner-form">
             <div class="input-field">
-              <button class="btn-search" type="button">
+              <button class="btn-search wow fadeInUp" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
                 </svg>
               </button>
-              <input id="searchbar" type="text" placeholder="Search" value="" style="background: rgba(0, 0, 0, 0.7);">
+              <input class="wow fadeInUp" id="searchbar" type="text" placeholder="Search" value="" style="background: rgba(0, 0, 0, 0.7);">
             </div>
           </div>
-          <div class="suggestion-wrap" id="suggestions">
+          <div class="suggestion-wrap wow fadeInLeft" id="suggestions">
             <!--automated-->
           </div>
         </fieldset>
@@ -96,6 +98,16 @@
         }
         suggest(suggestions);
     });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script>
+  new WOW().init();
 </script>
 </body>
 </html>
