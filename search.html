@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>ModaMate Search</title>
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/search-secondary.css">
+    <!-- Favicon for light theme -->
+    <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
+
+    <!-- Favicon for dark theme -->
+    <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
+
+    <meta name="robots" content="noindex, follow">
+</head>
+  <body>
+    <div id="preloader"></div>
+    <div id="top"></div>
+    <div class="s006" style="background: url('../assets/img/clothing.webp');">
+      <form>
+        <fieldset>
+          <legend>ModaMate Search Engine</legend>
+          <div class="inner-form">
+            <div class="input-field">
+              <button class="btn-search" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </button>
+              <input id="searchbar" type="text" placeholder="Search" value="" style="background: rgba(0, 0, 0, 0.7);">
+            </div>
+          </div>
+          <div class="suggestion-wrap" id="suggestions">
+            <!--automated-->
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fde4d767898e1bc","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.5","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
+<script>
+    let searchbar = document.getElementById('searchbar');
+    searchbar.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            // Prevent the form from submitting and refreshing the page
+            event.preventDefault(); 
+
+            const query = searchbar.value.trim();
+            if (query) {
+                window.location.href = `results.html?query=${encodeURIComponent(query)}`;
+            }
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let suggestionsDiv = document.getElementById("suggestions");
+        if (!suggestionsDiv) {
+            console.error("Failed to load AI suggestions."); // Element with id not found
+            return;
+        }
+        let suggestions = ['black shirt', 'black hoodie', 'grey joggers', 'white bag', 'collection', 'disco skirt', 'white hat', 'red shades'];
+
+        function suggest(list) {
+            const selected = [];
+            const usedIndexes = new Set();
+            while (selected.length < 7) {
+                const randomIndex = Math.floor(Math.random() * list.length);
+                if (!usedIndexes.has(randomIndex)) {
+                    selected.push(list[randomIndex]);
+                    usedIndexes.add(randomIndex);
+                }
+            }
+            suggestionsDiv.innerHTML = '';
+            selected.forEach(suggestion => {
+                suggestionsDiv.innerHTML += `<a href='results.html?query=${encodeURIComponent(suggestion)}'><span>${suggestion}</span><a>`;
+            });
+        }
+        suggest(suggestions);
+    });
+</script>
+</body>
+</html>

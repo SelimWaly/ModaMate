@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaMate</title>
+    <!-- Favicon for light theme -->
+    <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
+    
+    <!-- Favicon for dark theme -->
+    <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+    <!--content!-->
+    <script>
+    function updateTitle(title) {
+        document.title = `Results for "${title}" - ModaMate`
+    }
+    window.onload = function() {
+        let parameters = new URLSearchParams(window.location.search);
+        let query = parameters.get("query");
+        updateTitle(query);
+        // search(query);
+    }
+    </script>
+    <!-- <script src="search.js"></script> -->
+</body>
+</html>

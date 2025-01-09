@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaMate</title>
+
+    <script src="./bootstrap/js/color-modes.js"></script>
+
+    <!-- Favicon for light theme -->
+    <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
+    
+    <!-- Favicon for dark theme -->
+    <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
+
+    <link rel="stylesheet" href="css/product.css">
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ7RZ5yZtzzEuTjZ+dX8Aq7Nvb0ZBaO63Gi6gI4VlhpIQ9Sdx70VhRRI9c6T" crossorigin="anonymous"> -->
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/search-secondary.css">
+
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    
+</head>
+<body>
+    <!--content!-->
+
+    <div id="preloader"></div>
+    <div id="top"></div>
+
+    <main style="background: url('../assets/img/clothing.webp');">
+
+        <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="" style="font-size: 90; color: #fff;"><b>ModaMate Search Engine</b></h1>
+              <!-- <p class="lead text-body-secondary">Showing results for</p> -->
+              <form>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="background: rgba(0, 0, 0, 0.7);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="white"></path>
+                        </svg>
+                        
+                    </span>
+                  </div>
+                  <input id="searchbar" type="text" class="form-control" placeholder="Search" value="" style="font-size: 90; background: rgba(0, 0, 0, 0.7);">
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      
+        <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="results-div">
+                    <!--automated-->
+                </div>
+            </div>
+        </div>
+
+    </div>    
+</div>
+      
+      </main>
+
+      <footer id="footer">
+        <div class="container">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="text-center wow fadeInUp" style="font-size: 14px; margin-top: 2em; margin-bottom: 5em;">Copyright <a href="/">ModaMate</a> 2025. All rights reserved.</div>
+            </div>	
+        </div>	
+    </footer>
+
+    <script type="module">
+    import { results } from '/backend/search.js';
+    let searchbar = document.getElementById('searchbar')
+    searchbar.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            // Prevent the form from submitting and refreshing the page
+            event.preventDefault(); 
+
+            const query = searchbar.value.trim();
+            if (query) {
+                window.location.href = `results.html?query=${encodeURIComponent(query)}`;
+            }
+        }
+    });
+    function updateTitle(title) {
+        document.title = `Results for "${title}" - ModaMate`
+    }
+    function activateTheme() {
+        const darkModeButton = document.querySelector('button[data-bs-theme-value="dark"]');
+        if (darkModeButton) {
+            darkModeButton.classList.add('active');
+        }
+    }
+
+    window.onload = function() {
+        let parameters = new URLSearchParams(window.location.search);
+        let query = parameters.get("query");
+        updateTitle(query);
+        activateTheme();
+        searchbar.value = query;
+        results(query);
+    }
+    </script>
+    <script src="./bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

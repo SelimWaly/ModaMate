@@ -1,0 +1,158 @@
+/* Poppings - sansserif
+m & p = 0
+size = border-box
+*/
+
+body {
+    background-color: #fff3f3;
+}
+
+.product {
+    width: 250px;
+    height: 390px;
+    margin: auto;
+    perspective: 1000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 5em;
+    text-align: left;
+    /* background: #fff; */
+}
+
+.product-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    /* background: url('https://asilieg.com/cdn/shop/products/WhatsAppImage2022-10-17at5.22.58PM_3_590x.jpg?v=1666045477'); */
+    background-size: cover;
+    /* background-position: center; */
+    padding: 23px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #f5e0e0; /*fff */
+}
+
+.front h2 {
+    font-weight: 1000;
+    margin-bottom: -0.2em;
+}
+
+.front p {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.front button {
+    width: 100%;
+    border: 1px solid #fff;
+    background: transparent;
+    border-radius: 50px;
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.back {
+    background: #fff;
+    color: #333;
+    padding: 23px 20px;
+    transform: rotateY(180deg);
+}
+
+.back h3 {
+    font-size: 30px;
+    margin-bottom: -10px;
+}
+
+.back h3 span {
+    font-weight: 400;
+}
+
+.back p {
+    font-size: 14px;
+}
+
+.back p span {
+    font-weight: 600;
+}
+
+.back img {
+    width: 50px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.col {
+    flex: 1;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    position: relative;
+}
+
+.col h2 {
+    font-size: 20px;
+}
+
+.col::after {
+    content: '';
+    width: 1.5px;
+    height: 20px;
+    background: #363238;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.col:last-child::after {
+    display: none;
+}
+
+.col p {
+    margin-top: 5px;
+}
+
+.back button {
+    width: 100%;
+    border: 1px solid #fff;
+    background: transparent;
+    border-radius: 50px;
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.back a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.back a img {
+    width: 50%;
+}
+
+/* .product:hover .product-inner {
+    transform: rotateY(180deg);
+} */
