@@ -75,7 +75,7 @@
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="results-div">
-                    <img style="margin: auto; width: 200px; height: 180px;" src="assets/img/load2.gif" alt="Loading...">
+                    <img style="margin: auto; width: 200px; height: 180px;" src="./assets/img/load2.gif" alt="Loading...">
                     <!--automated-->
                 </div>
             </div>
@@ -122,16 +122,10 @@
     window.onload = function() {
         let parameters = new URLSearchParams(window.location.search);
         let query = parameters.get("query");
-        if (query)
-        {
-            updateTitle(query);
-            activateTheme();
-            searchbar.value = query;
-            results(query);
-        }
-        else {
-            resultsdiv.innerHTML = `<p>Please provide a search query.</p>`
-        }
+        updateTitle(query);
+        activateTheme();
+        searchbar.value = query;
+        results(query);
     }
     </script>
     <script src="./bootstrap/dist/js/bootstrap.bundle.min.js"></script>
