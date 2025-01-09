@@ -83,7 +83,7 @@ function searchPlus(queryPlus, database) {
 
 function results(searchQuery) {
     let content = search(searchQuery, db);
-    const resultsDiv = document.getElementById("results-div");
+    let resultsDiv = document.getElementById("results-div");
     if (!resultsDiv) {
         console.error("Element with ID 'results-div' not found!");
         return;
@@ -120,26 +120,26 @@ function results(searchQuery) {
     //     };
     // });
     // Fallback for missing images
-document.querySelectorAll(".product").forEach(productDiv => {
-    const backgroundImage = productDiv.style.backgroundImage;
-    if (backgroundImage.startsWith("url(")) {
-        const imgUrl = backgroundImage.slice(5, -2); // Extract URL from "url('...')"
-        const img = new Image();
-        img.src = imgUrl;
+    document.querySelectorAll(".product").forEach(productDiv => {
+        const backgroundImage = productDiv.style.backgroundImage;
+        if (backgroundImage.startsWith("url(")) {
+            const imgUrl = backgroundImage.slice(5, -2); // Extract URL from "url('...')"
+            const img = new Image();
+            img.src = imgUrl;
 
-        img.onload = () => {
-            // Image loaded successfully, no changes needed
-        };
+            img.onload = () => {
+                // Image loaded successfully, no changes needed
+            };
 
-        img.onerror = () => {
-            // Fallback to NoImage if the original image fails to load
+            img.onerror = () => {
+                // Fallback to NoImage if the original image fails to load
+                productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
+            };
+        } else {
+            // If no valid backgroundImage URL exists, set NoImage
             productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
-        };
-    } else {
-        // If no valid backgroundImage URL exists, set NoImage
-        productDiv.style.backgroundImage = "url('./assets/img/NoImage.png')";
-    }
-});
+        }
+    });
 
 }
 
