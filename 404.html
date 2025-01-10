@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | ModaMate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-presets {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .glass-card-container {
+            position: relative;
+            width: 94%;
+            height: 88%;
+            margin-right: 2.4em;
+            margin-bottom: 2.85em;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        h5 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .glass-button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .glass-button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #222, #111);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.8s ease-in-out;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-button:hover {
+            background: linear-gradient(to left, #222, #111);
+        }
+
+        
+        .abort-button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #222, #111);
+            color: white;
+            border: rgb(167, 30, 30);;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .abort-button:hover {
+            background: rgb(167, 30, 30);
+            border: linear-gradient(to right, #222, #111);
+        }
+
+        .glass-input {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #222, #111);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .glass-dropdown {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #222, #111);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .glass-option {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #222, #111);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+        <!-- Favicon for light theme -->
+        <link rel="icon" type="image/png" href="assets/img/LightTheme.ico" media="(prefers-color-scheme: light)">
+    
+        <!-- Favicon for dark theme -->
+        <link rel="icon" type="image/png" href="assets/img/DarkTheme.ico" media="(prefers-color-scheme: dark)">
+
+        <!-- CSS Files -->
+
+        <!-- Title -->
+        <meta property="og:title" content="404 Page Not Found | ModaMate" />
+  
+        <!-- Description -->
+        <meta property="og:description" content="AI-Powered Clothing Search Engine" />
+  
+        <!-- Image -->
+        <meta property="og:image" content="https://res.cloudinary.com/ddyftb9yl/image/upload/fl_preserve_transparency/v1736441234/Hero-1_gfv1yi.jpg?_s=public-apps" />
+
+        <!-- <link href="css/css-index-green.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-purple.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-red.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-orange.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-yellow.css" rel="stylesheet" media="screen"> -->
+
+        <!-- Google Fonts -->
+</head>
+<body>
+    <img src="./assets/img/Hero-1.jpg" class="image-presets">
+    <div class="glass-card-container">
+        <div class="glass-card">
+            <h1><a href="index.html" style="color: #fff; text-decoration: wavy;">404 Page Not Found<br>Click here to go home!</a></h1>
+            <!-- <div class="btn-section"><a href="index.html" class="btn-default">Go to Home</a></div> -->
+        </div>
+    </div>
+</body>
+</html>
